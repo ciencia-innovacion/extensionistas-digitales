@@ -140,7 +140,7 @@
   }
   label.q .req{color:var(--clay); margin-left:2px;}
   .hint{font-size:12.5px; color:var(--ink-soft); margin:-4px 0 8px;}
-  input[type=text], input[type=email], input[type=date], input[type=number], textarea, select{
+  input[type=text], input[type=email], input[type=url], input[type=tel], input[type=date], input[type=number], textarea, select{
     width:100%;
     padding:11px 13px;
     border:1.5px solid var(--line);
@@ -295,8 +295,9 @@
       <span>1. Identificación</span>
       <span>2. Raíces</span>
       <span>3. Procedencia</span>
-      <span>4. Visión</span>
-      <span>5. Contacto</span>
+      <span>4. Comercial</span>
+      <span>5. Visión</span>
+      <span>6. Contacto</span>
     </div>
   </div>
 </header>
@@ -329,6 +330,18 @@
         </div>
 
         <div class="field">
+          <label class="q">WhatsApp o número de teléfono<span class="req">*</span></label>
+          <p class="hint">Incluye el código de país (ej: +57 300 123 4567).</p>
+          <input type="tel" name="telefono" placeholder="+57 300 123 4567" required>
+        </div>
+
+        <div class="field">
+          <label class="q">Enlace a tu perfil de LinkedIn o a tu CV<span class="req">*</span></label>
+          <p class="hint">Pega el link de tu LinkedIn, o de tu CV en Google Drive/Dropbox (asegúrate de que el enlace tenga permisos para verlo).</p>
+          <input type="url" name="enlace_linkedin_cv" placeholder="https://..." required>
+        </div>
+
+        <div class="field">
           <label class="q">Fecha de nacimiento<span class="req">*</span></label>
           <input type="date" name="fecha_nacimiento" required>
         </div>
@@ -347,22 +360,13 @@
             <label class="opt"><input type="radio" name="genero" value="Prefiero no decir" required onclick="toggleSub(this,'genero-otro',false)"> Prefiero no decir</label>
           </div>
         </div>
-
-        <div class="field">
-          <label class="q">Aviso de privacidad y consentimiento de tratamiento de datos<span class="req">*</span></label>
-          <p class="hint">Los datos personales, incluida la ubicación, serán utilizados exclusivamente para fines del proceso de selección.</p>
-          <div class="radio-group">
-            <label class="opt"><input type="radio" name="consentimiento" value="Acepto" required> Acepto</label>
-            <label class="opt"><input type="radio" name="consentimiento" value="No acepto" required> No acepto</label>
-          </div>
-        </div>
       </section>
 
       <!-- SECCIÓN 2 -->
       <section class="block">
         <div class="block-head">
           <span class="block-num">II.</span>
-          <h2 class="block-title">Tus raíces con la agricultura</h2>
+          <h2 class="block-title">Tus raíces con la comunidad campesina</h2>
         </div>
 
         <div class="field">
@@ -400,18 +404,18 @@
         </div>
 
         <div class="field">
-          <label class="q">Selecciona la opción que mejor describa tu vínculo con el campo<span class="req">*</span></label>
+          <label class="q">Selecciona la opción que mejor describa tu vínculo con la comunidad campesina<span class="req">*</span></label>
           <div class="radio-group">
-            <label class="opt"><input type="radio" name="vinculo_campo" value="Mi familia tiene un campo/finca/terreno/parcela y la trabajamos" required onclick="toggleHectarea(true)"> Mi familia tiene un campo/finca/terreno/parcela y la trabajamos</label>
-            <label class="opt"><input type="radio" name="vinculo_campo" value="Con mi familia trabajamos la tierra de otra persona" required onclick="toggleHectarea(true)"> Con mi familia trabajamos la tierra de otra persona</label>
-            <label class="opt"><input type="radio" name="vinculo_campo" value="Con mi familia arrendamos o pedimos prestada la tierra para trabajarla" required onclick="toggleHectarea(true)"> Con mi familia arrendamos o pedimos prestada la tierra para trabajarla</label>
-            <label class="opt"><input type="radio" name="vinculo_campo" value="Mi familia tiene raíces en el campo pero ya no trabaja la tierra" required onclick="toggleHectarea(false)"> Mi familia tiene raíces en el campo pero ya no trabaja la tierra</label>
-            <label class="opt"><input type="radio" name="vinculo_campo" value="Mi familia es de origen urbano y no tiene vínculo con el campo" required onclick="toggleHectarea(false)"> Mi familia es de origen urbano y no tiene vínculo con el campo</label>
+            <label class="opt"><input type="radio" name="vinculo_comunidad" value="Crecí en una comunidad campesina y actualmente sigo siendo parte de ella" required onclick="toggleHectarea(true)"> Crecí en una comunidad campesina y actualmente sigo siendo parte de ella</label>
+            <label class="opt"><input type="radio" name="vinculo_comunidad" value="Crecí en una comunidad campesina, aunque ya no vivo ahí" required onclick="toggleHectarea(false)"> Crecí en una comunidad campesina, aunque ya no vivo ahí</label>
+            <label class="opt"><input type="radio" name="vinculo_comunidad" value="No crecí en una comunidad campesina, pero mi familia tiene raíces campesinas" required onclick="toggleHectarea(false)"> No crecí en una comunidad campesina, pero mi familia tiene raíces campesinas</label>
+            <label class="opt"><input type="radio" name="vinculo_comunidad" value="Crecí en una zona urbana, pero actualmente vivo en una comunidad campesina" required onclick="toggleHectarea(true)"> Crecí en una zona urbana, pero actualmente vivo en una comunidad campesina</label>
+            <label class="opt"><input type="radio" name="vinculo_comunidad" value="No tengo vínculo con ninguna comunidad campesina (origen urbano)" required onclick="toggleHectarea(false)"> No tengo vínculo con ninguna comunidad campesina (origen urbano)</label>
           </div>
         </div>
 
         <div class="field conditional" id="hectarea-box">
-          <label class="q">La finca/campo que trabaja tu familia tiene alrededor de:</label>
+          <label class="q">¿Qué tamaño tiene aproximadamente el terreno de tu comunidad o familia?</label>
           <p class="hint">Dato de caracterización, no excluyente para el perfil objetivo.</p>
           <div class="radio-group">
             <label class="opt"><input type="radio" name="tamano_finca" value="Menos de 1 hectárea"> Menos de 1 hectárea</label>
@@ -485,22 +489,82 @@
           </div>
         </div>
 
-        <div class="field">
-          <label class="q">¿Cuál sería tu expectativa salarial para este rol?</label>
-          <p class="hint">Indica en dólares mensuales (USD).</p>
-          <input type="number" name="expectativa_salarial" min="0" step="1">
-        </div>
       </section>
 
       <!-- SECCIÓN 4 -->
       <section class="block">
         <div class="block-head">
           <span class="block-num">IV.</span>
-          <h2 class="block-title">Visión a futuro</h2>
+          <h2 class="block-title">Potencial comercial y de emprendimiento</h2>
         </div>
+
         <div class="field">
-          <label class="q">¿Cómo te ves en 5 años?<span class="req">*</span></label>
-          <textarea name="vision_futuro" required></textarea>
+          <label class="q">¿Vendes o has vendido alguna vez un producto o servicio, formal o informalmente?<span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="opt"><input type="radio" name="vendio_antes" value="Sí, regularmente" required onclick="toggleVentaDetalle(true)"> Sí, regularmente</label>
+            <label class="opt"><input type="radio" name="vendio_antes" value="Sí, alguna vez" required onclick="toggleVentaDetalle(true)"> Sí, alguna vez</label>
+            <label class="opt"><input type="radio" name="vendio_antes" value="No" required onclick="toggleVentaDetalle(false)"> No</label>
+          </div>
+        </div>
+
+        <div class="conditional" id="venta-detalle-box">
+          <div class="field">
+            <label class="q">¿Qué vendes o vendías?</label>
+            <input type="text" name="que_vendia">
+          </div>
+          <div class="field">
+            <label class="q">¿A quién se lo vendes o vendías?</label>
+            <input type="text" name="a_quien_vendia">
+          </div>
+          <div class="field">
+            <label class="q">¿Dónde lo vendes o vendías?</label>
+            <div class="radio-group">
+              <label class="opt"><input type="radio" name="donde_vendia" value="En persona/local"> En persona/local</label>
+              <label class="opt"><input type="radio" name="donde_vendia" value="Mercado o feria"> Mercado o feria</label>
+              <label class="opt"><input type="radio" name="donde_vendia" value="A domicilio"> A domicilio</label>
+              <label class="opt"><input type="radio" name="donde_vendia" value="Otro"> Otro</label>
+            </div>
+          </div>
+          <div class="field">
+            <label class="q">¿Por qué medio lo ofreces o lo ofrecías?</label>
+            <div class="radio-group">
+              <label class="opt"><input type="radio" name="medio_venta" value="Boca a boca"> Boca a boca</label>
+              <label class="opt"><input type="radio" name="medio_venta" value="WhatsApp"> WhatsApp</label>
+              <label class="opt"><input type="radio" name="medio_venta" value="Redes sociales"> Redes sociales</label>
+              <label class="opt"><input type="radio" name="medio_venta" value="Otro"> Otro</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="q">Cuando te piden hacer algo nuevo que aún no sabes hacer bien (por ejemplo, hablar con desconocidos para ofrecerles algo), ¿qué es lo más probable que hagas?<span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="opt"><input type="radio" name="disposicion_aprender_ventas" value="Busco la forma de aprenderlo y lo intento, aunque me cueste al principio" required> Busco la forma de aprenderlo y lo intento, aunque me cueste al principio</label>
+            <label class="opt"><input type="radio" name="disposicion_aprender_ventas" value="Prefiero que otra persona se encargue de esa parte" required> Prefiero que otra persona se encargue de esa parte</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="q">¿Cuál de estas frases te describe mejor?<span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="opt"><input type="radio" name="relacion_tecnologia" value="Soy la persona a la que otros en mi familia o comunidad le piden ayuda con el celular, aplicaciones o internet" required> Soy la persona a la que otros en mi familia o comunidad le piden ayuda con el celular, aplicaciones o internet</label>
+            <label class="opt"><input type="radio" name="relacion_tecnologia" value="Me manejo bien con la tecnología, aunque no suelo ayudar a otros con eso" required> Me manejo bien con la tecnología, aunque no suelo ayudar a otros con eso</label>
+            <label class="opt"><input type="radio" name="relacion_tecnologia" value="Uso lo básico (llamadas, WhatsApp) y evito herramientas más complejas" required> Uso lo básico (llamadas, WhatsApp) y evito herramientas más complejas</label>
+            <label class="opt"><input type="radio" name="relacion_tecnologia" value="Se me dificulta usar aplicaciones o herramientas digitales nuevas" required> Se me dificulta usar aplicaciones o herramientas digitales nuevas</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="q">Cuéntanos de una vez que insististe en algo (una idea, una tarea, un proyecto) a pesar de las dificultades.<span class="req">*</span></label>
+          <textarea name="persistencia_ejemplo" required></textarea>
+        </div>
+
+        <div class="field">
+          <label class="q">¿Tienes una cuenta bancaria o billetera digital a tu nombre?<span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="opt"><input type="radio" name="bancarizado" value="Sí" required> Sí</label>
+            <label class="opt"><input type="radio" name="bancarizado" value="No" required> No</label>
+          </div>
         </div>
       </section>
 
@@ -508,7 +572,28 @@
       <section class="block">
         <div class="block-head">
           <span class="block-num">V.</span>
-          <h2 class="block-title">Medio de comunicación</h2>
+          <h2 class="block-title">Visión a futuro</h2>
+        </div>
+        <div class="field">
+          <label class="q">¿Qué tipo de trabajo te gustaría tener a futuro?<span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="opt"><input type="radio" name="tipo_trabajo_preferido" value="Trabajar en mi propio negocio o emprendimiento" required> Trabajar en mi propio negocio o emprendimiento</label>
+            <label class="opt"><input type="radio" name="tipo_trabajo_preferido" value="Trabajo formal en una institución u organización" required> Trabajo formal en una institución u organización</label>
+            <label class="opt"><input type="radio" name="tipo_trabajo_preferido" value="Una combinación de ambos" required> Una combinación de ambos</label>
+            <label class="opt"><input type="radio" name="tipo_trabajo_preferido" value="Aún no lo tengo claro" required> Aún no lo tengo claro</label>
+          </div>
+        </div>
+        <div class="field">
+          <label class="q">¿Cómo te imaginas tu vida en 5 años? Cuéntanos sobre tu trabajo, tu comunidad y lo que te gustaría estar haciendo.<span class="req">*</span></label>
+          <textarea name="vision_futuro" required></textarea>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 6 -->
+      <section class="block">
+        <div class="block-head">
+          <span class="block-num">VI.</span>
+          <h2 class="block-title">Sobre tu postulación</h2>
         </div>
 
         <div class="field">
@@ -572,7 +657,7 @@
 
 <script>
 // ====== CONFIGURA AQUÍ LA URL DE TU APPS SCRIPT WEB APP ======
-const GAS_URL = "PEGA_AQUI_LA_URL_DE_TU_WEB_APP";
+const GAS_URL = "https://script.google.com/macros/s/AKfycbxQ-1kIdLAREMlx1Cmwu5W9U-zX-W_7M-bSDsiTT3yIJ9CmtlQ8ZdA8ydK1c8sE3ySY/exec";
 // ================================================================
 
 function toggleSub(checkboxEl, inputId, forceShow){
@@ -587,6 +672,15 @@ function toggleHectarea(show){
   box.classList.toggle('show', show);
   if(!show){
     box.querySelectorAll('input[name=tamano_finca]').forEach(function(el){ el.checked = false; });
+  }
+}
+
+function toggleVentaDetalle(show){
+  const box = document.getElementById('venta-detalle-box');
+  box.classList.toggle('show', show);
+  if(!show){
+    box.querySelectorAll('input[type=text]').forEach(function(el){ el.value = ''; });
+    box.querySelectorAll('input[type=radio]').forEach(function(el){ el.checked = false; });
   }
 }
 
@@ -748,12 +842,6 @@ form.addEventListener('submit', async function(e){
   }
   if(!document.getElementById('lat-actual').value){
     alert('Por favor selecciona tu lugar de residencia actual en el mapa.');
-    return;
-  }
-
-  const consentimiento = form.querySelector('input[name=consentimiento]:checked');
-  if(consentimiento && consentimiento.value === 'No acepto'){
-    alert('Para continuar con tu postulación es necesario aceptar el aviso de privacidad.');
     return;
   }
 
