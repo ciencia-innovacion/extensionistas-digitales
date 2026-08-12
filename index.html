@@ -181,6 +181,8 @@
     margin-left:26px;
   }
   .opt .sub-input.show{display:block;}
+  select ~ .sub-input{display:none; margin-top:8px;}
+  select ~ .sub-input.show{display:block;}
   .map-box{
     height:260px;
     border-radius:12px;
@@ -358,6 +360,55 @@
               <input type="text" class="sub-input" id="genero-otro" name="genero_otro" placeholder="Especifica...">
             </label>
             <label class="opt"><input type="radio" name="genero" value="Prefiero no decir" required onclick="toggleSub(this,'genero-otro',false)"> Prefiero no decir</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="q">¿Cuál es tu carrera o área de estudio?<span class="req">*</span></label>
+          <select name="area_estudio" required onchange="toggleSub(this,'area-estudio-otro', this.value==='Otra')">
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="Agronomía">Agronomía</option>
+            <option value="Medicina veterinaria / Zootecnia">Medicina veterinaria / Zootecnia</option>
+            <option value="Ingeniería agroindustrial / Agroindustria">Ingeniería agroindustrial / Agroindustria</option>
+            <option value="Ingeniería ambiental / Ciencias ambientales">Ingeniería ambiental / Ciencias ambientales</option>
+            <option value="Ingeniería civil">Ingeniería civil</option>
+            <option value="Ingeniería industrial">Ingeniería industrial</option>
+            <option value="Ingeniería en sistemas / Informática">Ingeniería en sistemas / Informática</option>
+            <option value="Administración de empresas">Administración de empresas</option>
+            <option value="Contabilidad / Auditoría">Contabilidad / Auditoría</option>
+            <option value="Economía">Economía</option>
+            <option value="Marketing / Publicidad">Marketing / Publicidad</option>
+            <option value="Comercio exterior / Negocios internacionales">Comercio exterior / Negocios internacionales</option>
+            <option value="Turismo y hotelería">Turismo y hotelería</option>
+            <option value="Educación / Pedagogía">Educación / Pedagogía</option>
+            <option value="Enfermería">Enfermería</option>
+            <option value="Medicina">Medicina</option>
+            <option value="Nutrición">Nutrición</option>
+            <option value="Psicología">Psicología</option>
+            <option value="Trabajo social">Trabajo social</option>
+            <option value="Derecho">Derecho</option>
+            <option value="Comunicación social / Periodismo">Comunicación social / Periodismo</option>
+            <option value="Diseño gráfico">Diseño gráfico</option>
+            <option value="Arquitectura">Arquitectura</option>
+            <option value="Sociología / Antropología">Sociología / Antropología</option>
+            <option value="Ciencias políticas">Ciencias políticas</option>
+            <option value="Biología">Biología</option>
+            <option value="Técnico/a agropecuario/a">Técnico/a agropecuario/a</option>
+            <option value="Técnico/a en informática">Técnico/a en informática</option>
+            <option value="Sin estudios formales en un área específica">Sin estudios formales en un área específica</option>
+            <option value="Otra">Otra</option>
+          </select>
+          <input type="text" class="sub-input" id="area-estudio-otro" name="area_estudio_otro" placeholder="¿Cuál?">
+        </div>
+
+        <div class="field">
+          <label class="q">¿Cuál es tu situación académica actual?<span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="opt"><input type="radio" name="estado_titulacion" value="Cuento con estudios de posgrado (magíster, diplomado, especialización, etc.)" required> Cuento con estudios de posgrado (magíster, diplomado, especialización, etc.)</label>
+            <label class="opt"><input type="radio" name="estado_titulacion" value="Titulado/a o con título profesional" required> Titulado/a o con título profesional</label>
+            <label class="opt"><input type="radio" name="estado_titulacion" value="Egresado/a (terminé mis estudios, aún sin título)" required> Egresado/a (terminé mis estudios, aún sin título)</label>
+            <label class="opt"><input type="radio" name="estado_titulacion" value="Actualmente cursando mis estudios" required> Actualmente cursando mis estudios</label>
+            <label class="opt"><input type="radio" name="estado_titulacion" value="No he cursado estudios superiores" required> No he cursado estudios superiores</label>
           </div>
         </div>
       </section>
@@ -657,7 +708,7 @@
 
 <script>
 // ====== CONFIGURA AQUÍ LA URL DE TU APPS SCRIPT WEB APP ======
-const GAS_URL = "https://script.google.com/macros/s/AKfycbxQ-1kIdLAREMlx1Cmwu5W9U-zX-W_7M-bSDsiTT3yIJ9CmtlQ8ZdA8ydK1c8sE3ySY/exec";
+const GAS_URL = "https://script.google.com/macros/s/AKfycby7lNi9bMR6TS8yrlsSM-Lsby10RFyPVxVeBleSKzzRdRouuz8QNl6ZoxhuMW3rbmM5/exec";
 // ================================================================
 
 function toggleSub(checkboxEl, inputId, forceShow){
