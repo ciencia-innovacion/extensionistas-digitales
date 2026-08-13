@@ -371,12 +371,13 @@
         </div>
 
         <div class="field">
-          <label class="q">¿Perteneces o perteneciste a una comunidad campesina o rural?<span class="req">*</span></label>
+          <label class="q">¿Perteneces o perteneciste a una comunidad campesina?<span class="req">*</span></label>
           <div class="radio-group">
             <label class="opt"><input type="radio" name="vinculo_comunidad" value="Sí, actualmente vivo ahí" required> Sí, actualmente vivo ahí</label>
             <label class="opt"><input type="radio" name="vinculo_comunidad" value="Sí, crecí ahí pero ya no vivo ahí" required> Sí, crecí ahí pero ya no vivo ahí</label>
+            <label class="opt"><input type="radio" name="vinculo_comunidad" value="No vivo ahí, pero la visito frecuentemente (al menos una vez al año)" required> No vivo ahí, pero la visito frecuentemente (al menos una vez al año)</label>
             <label class="opt"><input type="radio" name="vinculo_comunidad" value="No crecí ahí, pero mi familia tiene raíces en una comunidad campesina" required> No crecí ahí, pero mi familia tiene raíces en una comunidad campesina</label>
-            <label class="opt"><input type="radio" name="vinculo_comunidad" value="No tengo vínculo con ninguna comunidad campesina o rural" required> No tengo vínculo con ninguna comunidad campesina o rural</label>
+            <label class="opt"><input type="radio" name="vinculo_comunidad" value="No tengo vínculo con ninguna comunidad campesina" required> No tengo vínculo con ninguna comunidad campesina</label>
           </div>
         </div>
 
@@ -408,9 +409,9 @@
           <label class="q">¿Cuál es tu carrera o área de estudio?<span class="req">*</span></label>
           <select name="area_estudio" required onchange="toggleSub(this,'area-estudio-otro', this.value==='Otro')">
             <option value="" disabled selected>Selecciona una opción</option>
-            <option value="Agronomía">Agronomía</option>
-            <option value="Agroecología">Agroecología</option>
-            <option value="Medicina veterinaria o Zootecnia">Medicina veterinaria o Zootecnia</option>
+            <option value="Ciencias agronómicas">Ciencias agronómicas</option>
+            <option value="Ciencias agropecuarias">Ciencias agropecuarias</option>
+            <option value="Ciencias medioambientales">Ciencias medioambientales</option>
             <option value="Otro">Otro</option>
           </select>
           <input type="text" class="sub-input" id="area-estudio-otro" name="area_estudio_otro" placeholder="¿Cuál?">
@@ -455,7 +456,7 @@
         </div>
 
         <div class="field">
-          <label class="q">¿Dónde se encuentra tu comunidad de origen?<span class="req">*</span></label>
+          <label class="q">¿Dónde se encuentra tu comunidad de origen?</label>
           <p class="hint">Acerca el mapa y toca el punto exacto (o el más cercano que reconozcas).</p>
           <div class="map-search">
             <button type="button" class="locate-btn" onclick="useMyLocation('origen')">📍 Usar mi ubicación actual</button>
@@ -487,6 +488,8 @@
             <label class="opt"><input type="checkbox" name="plataformas_uso" value="Fiverr"> Fiverr</label>
             <label class="opt"><input type="checkbox" name="plataformas_uso" value="YouTube"> YouTube</label>
             <label class="opt"><input type="checkbox" name="plataformas_uso" value="Canva"> Canva</label>
+            <label class="opt"><input type="checkbox" name="plataformas_uso" value="Gmail / Outlook"> Gmail / Outlook</label>
+            <label class="opt"><input type="checkbox" name="plataformas_uso" value="Plataformas de IA (ChatGPT, Claude, etc.)"> Plataformas de IA (ChatGPT, Claude, etc.)</label>
             <label class="opt has-sub-input">
               <span><input type="checkbox" name="plataformas_uso" value="Otra" onclick="toggleSub(this,'plataformas-otro')"> Otra</span>
               <input type="text" class="sub-input" id="plataformas-otro" name="plataformas_uso_otro" placeholder="¿Cuál?">
@@ -529,23 +532,8 @@
         <p class="block-note">Ya casi terminas — estas últimas preguntas son abiertas, tómate el tiempo que necesites.</p>
 
         <div class="field">
-          <label class="q">¿Qué tipo de trabajo te gustaría tener a futuro?<span class="req">*</span></label>
-          <div class="radio-group">
-            <label class="opt"><input type="radio" name="tipo_trabajo_preferido" value="Trabajar en mi propio negocio o emprendimiento" required> Trabajar en mi propio negocio o emprendimiento</label>
-            <label class="opt"><input type="radio" name="tipo_trabajo_preferido" value="Trabajo formal en una institución u organización" required> Trabajo formal en una institución u organización</label>
-            <label class="opt"><input type="radio" name="tipo_trabajo_preferido" value="Una combinación de ambos" required> Una combinación de ambos</label>
-            <label class="opt"><input type="radio" name="tipo_trabajo_preferido" value="Aún no lo tengo claro" required> Aún no lo tengo claro</label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="q">Cuéntanos sobre alguna experiencia comercial o de emprendimiento que hayas tenido (por ejemplo, algo que hayas vendido, organizado, o algún proyecto propio).<span class="req">*</span></label>
+          <label class="q">Cuéntanos sobre alguna experiencia comercial que hayas tenido (por ejemplo, vender algo en Facebook Marketplace, a un vecino, en una feria, o cualquier otra venta que hayas hecho).<span class="req">*</span></label>
           <textarea name="experiencia_emprendimiento" required></textarea>
-        </div>
-
-        <div class="field">
-          <label class="q">¿Cómo te imaginas tu vida en 5 años? Cuéntanos sobre tu trabajo, tu entorno y lo que te gustaría estar haciendo.<span class="req">*</span></label>
-          <textarea name="vision_futuro" required></textarea>
         </div>
 
         <div class="field">
@@ -721,10 +709,6 @@ const statusMsg = document.getElementById('status-msg');
 form.addEventListener('submit', async function(e){
   e.preventDefault();
 
-  if(!document.getElementById('lat-origen').value){
-    alert('Por favor selecciona la ubicación de tu comunidad en el mapa.');
-    return;
-  }
   const formData = new FormData(form);
   const payload = {};
   formData.forEach((value, key) => {
