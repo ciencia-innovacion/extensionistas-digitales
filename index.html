@@ -313,7 +313,6 @@
       <span>4. Tu comunidad</span>
       <span>5. Contexto</span>
       <span>6. Trayectoria</span>
-      <span>7. Contacto</span>
     </div>
   </div>
 </header>
@@ -341,6 +340,12 @@
         </div>
 
         <div class="field">
+          <label class="q">WhatsApp o número de teléfono</label>
+          <p class="hint">Incluye el código de país (ej: +57 300 123 4567).</p>
+          <input type="tel" name="telefono" placeholder="+57 300 123 4567">
+        </div>
+
+        <div class="field">
           <label class="q">Fecha de nacimiento<span class="req">*</span></label>
           <input type="date" name="fecha_nacimiento" required>
         </div>
@@ -363,7 +368,7 @@
         <p class="block-note">Antes de seguir, queremos conocerte un poco.</p>
 
         <div class="field">
-          <label class="q">¿Tu familia se dedica o se dedicó a la producción agropecuaria (agricultura, ganadería, pesca u otra actividad productiva del campo)?<span class="req">*</span></label>
+          <label class="q">La familia con la que creciste —tu papá, tu mamá, o quienes te criaron— ¿se dedica o se dedicó directamente a la producción agropecuaria: agricultura, ganadería, pesca u otra actividad productiva del campo?<span class="req">*</span></label>
           <div class="radio-group">
             <label class="opt"><input type="radio" name="familia_productora" value="Sí" required> Sí</label>
             <label class="opt"><input type="radio" name="familia_productora" value="No" required> No</label>
@@ -542,27 +547,6 @@
         </div>
       </section>
 
-      <!-- SECCIÓN 7 -->
-      <section class="block">
-        <div class="block-head">
-          <span class="block-num">VII.</span>
-          <h2 class="block-title">Datos de contacto</h2>
-        </div>
-        <p class="block-note">Opcional. Si nos los dejas, nos facilita poder contactarte más rápido.</p>
-
-        <div class="field">
-          <label class="q">WhatsApp o número de teléfono</label>
-          <p class="hint">Incluye el código de país (ej: +57 300 123 4567).</p>
-          <input type="tel" name="telefono" placeholder="+57 300 123 4567">
-        </div>
-
-        <div class="field">
-          <label class="q">Enlace a tu perfil de LinkedIn o a tu CV</label>
-          <p class="hint">Pega el link de tu LinkedIn o de tu CV en Google Drive/Dropbox (asegúrate de que el enlace tenga permisos para verlo).</p>
-          <input type="url" name="enlace_linkedin_cv" placeholder="https://...">
-        </div>
-      </section>
-
       <div class="footer-bar">
         <button type="submit" class="submit" id="submitBtn">Enviar postulación</button>
         <p class="privacy">Al enviar, confirmas que la información proporcionada es verídica.</p>
@@ -579,7 +563,7 @@
 
 <script>
 // ====== CONFIGURA AQUÍ LA URL DE TU APPS SCRIPT WEB APP ======
-const GAS_URL = "https://script.google.com/macros/s/AKfycbwClO8bL92xgX7g8V_IJGMJB-epH3a8GWj3gmnbMfRvXvY-DkwLBh8v6nc5kK6uGdBt/exec";
+const GAS_URL = "https://script.google.com/macros/s/AKfycbwzMRcmoobwn4RFS7VYWxFYAfO65zzmKHV14Dn2PJC3BpImecmULqHS4xfRGFq75AxA/exec";
 // ================================================================
 
 function toggleSub(checkboxEl, inputId, forceShow){
