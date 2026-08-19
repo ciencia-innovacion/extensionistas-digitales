@@ -14,13 +14,13 @@
     --paper:#FFFFFF;
     --ink:#22301F;
     --ink-soft:#5B6656;
-    --green-deep:#1F5C3E;
-    --green-bright:#3E8E5B;
-    --green-pale:#E4EEE3;
-    --clay:#B5651D;
-    --clay-pale:#F2E2D2;
-    --sand:#E8DFC8;
-    --line:#D8D0BC;
+    --green-deep:#3F6B22;
+    --green-bright:#8CBE0C;
+    --green-pale:#E7F0DC;
+    --clay:#638832;
+    --clay-pale:#E9F0DE;
+    --sand:#EFF3E6;
+    --line:#DDE4D1;
     --error:#B3261E;
     --radius:14px;
   }
@@ -40,7 +40,7 @@
     padding:0 20px 80px;
   }
   header.hero{
-    background:linear-gradient(160deg, var(--green-deep) 0%, #163F2A 100%);
+    background:linear-gradient(160deg, #1F3319 0%, #101B0C 100%);
     color:#F6F3EC;
     padding:52px 20px 60px;
     position:relative;
@@ -52,27 +52,28 @@
     right:-60px; bottom:-90px;
     width:280px; height:280px;
     border-radius:50%;
-    background:radial-gradient(circle, rgba(181,101,29,.35) 0%, rgba(181,101,29,0) 70%);
+    background:radial-gradient(circle, rgba(140,190,12,.25) 0%, rgba(140,190,12,0) 70%);
   }
   .hero-inner{max-width:760px;margin:0 auto;position:relative;}
   .eyebrow{
-    font-size:12.5px;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:#BFE0CC;
-    font-weight:600;
-    margin-bottom:14px;
+    font-size:14px;
+    letter-spacing:.02em;
+    color:#FFFFFF;
+    font-weight:700;
+    margin-bottom:10px;
   }
   h1.hero-title{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:clamp(28px,5vw,40px);
-    line-height:1.12;
-    margin:0 0 14px;
+    font-family:'Inter', sans-serif;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:-.01em;
+    font-size:clamp(30px,6vw,46px);
+    line-height:1.05;
+    margin:0 0 16px;
   }
   .hero-sub{
     font-size:15.5px;
-    color:#D9E7DC;
+    color:#E4EEDA;
     max-width:520px;
     margin:0;
   }
@@ -183,6 +184,8 @@
   .opt .sub-input.show{display:block;}
   select ~ .sub-input{display:none; margin-top:8px;}
   select ~ .sub-input.show{display:block;}
+  .field > input.sub-input{display:none; margin-top:8px;}
+  .field > input.sub-input.show{display:block;}
   .map-box{
     height:320px;
     border-radius:12px;
@@ -305,7 +308,7 @@
   <div class="hero-inner">
     <div class="eyebrow">FAO · Programa Extensionistas Digitales</div>
     <h1 class="hero-title">Extensionistas Digitales</h1>
-    <p class="hero-sub">Este formulario recoge tu información para el proceso de selección de Extensionistas Digitales. Tómate tu tiempo — no hay respuestas correctas o incorrectas.</p>
+    <p class="hero-sub">Este formulario recoge tu información para el proceso de selección de Extensionistas Digitales. Completarlo no garantiza un cupo en el programa — es el primer paso del proceso. Tómate tu tiempo, no hay respuestas correctas o incorrectas.</p>
     <div class="trail">
       <span>1. Identificación</span>
       <span>2. Para conocerte</span>
@@ -534,7 +537,15 @@
           <span class="block-num">VI.</span>
           <h2 class="block-title">Tu trayectoria y motivación</h2>
         </div>
-        <p class="block-note">Ya casi terminas — estas últimas preguntas son abiertas, tómate el tiempo que necesites.</p>
+        <p class="block-note">Ya casi terminas — algunas de estas últimas preguntas son abiertas, tómate el tiempo que necesites.</p>
+
+        <div class="field">
+          <label class="q">¿Alguna vez has trabajado como extensionista agrícola, o has prestado servicios de asistencia técnica agrícola a alguna organización o entidad (por ejemplo: FAO, un ministerio de agricultura, una ONG, una cooperativa agrícola, una empresa agroindustrial, etc.)?<span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="opt"><input type="radio" name="experiencia_extensionista" value="Sí" required> Sí</label>
+            <label class="opt"><input type="radio" name="experiencia_extensionista" value="No" required> No</label>
+          </div>
+        </div>
 
         <div class="field">
           <label class="q">Cuéntanos sobre alguna vez que hayas vendido algo o hecho un trabajo/servicio a cambio de un pago (por ejemplo: vender algo en Facebook Marketplace o a un vecino, ayudar a alguien con una tarea a cambio de dinero, dar clases particulares, hacer un trámite o encargo para otra persona, etc.).</label>
@@ -563,7 +574,7 @@
 
 <script>
 // ====== CONFIGURA AQUÍ LA URL DE TU APPS SCRIPT WEB APP ======
-const GAS_URL = "https://script.google.com/macros/s/AKfycbwzMRcmoobwn4RFS7VYWxFYAfO65zzmKHV14Dn2PJC3BpImecmULqHS4xfRGFq75AxA/exec";
+const GAS_URL = "https://script.google.com/macros/s/AKfycbxIlT1nYuQVIgL40WAFo4EiTQHaBxirHD6sgV8pBBz3fYKBhFXrM-A2wLNQeSAY9OsW/exec";
 // ================================================================
 
 function toggleSub(checkboxEl, inputId, forceShow){
